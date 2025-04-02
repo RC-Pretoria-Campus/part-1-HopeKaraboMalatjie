@@ -229,3 +229,116 @@ namespace CybersecurityAwarenessBot
             Console.WriteLine("\n⚠ Remember: Never share your passwords with anyone, even if they claim to be from technical support!");
             Console.ResetColor();
         }
+        static void PhishingAwarenessTips()
+        {
+            Console.Clear();
+
+            Console.ForegroundColor = secondaryColor;
+            Console.WriteLine("╔═══════════════════════════════════════════════════╗");
+            Console.WriteLine("║               PHISHING AWARENESS                  ║");
+            Console.WriteLine("╚═══════════════════════════════════════════════════╝");
+            Console.ResetColor();
+
+            Console.ForegroundColor = primaryColor;
+            TypeWriteEffect($"\n{userName}, stay vigilant against phishing attempts with these tips:\n");
+            Console.ResetColor();
+
+            Console.WriteLine("1. Be suspicious of unexpected emails or messages, even if they appear to be from known contacts");
+            Console.WriteLine("2. Check email addresses carefully - phishers often use slightly misspelled domain names");
+            Console.WriteLine("3. Hover over links before clicking to see the actual URL they lead to");
+            Console.WriteLine("4. Don't open attachments from suspicious sources");
+            Console.WriteLine("5. Be wary of messages creating urgency or fear to make you act quickly");
+            Console.WriteLine("6. If in doubt about an email from a service you use, go directly to their website instead of clicking links");
+
+            Console.ForegroundColor = warningColor;
+            Console.WriteLine("\n⚠ Remember: Legitimate organizations will never ask for your password or sensitive information via email!");
+            Console.ResetColor();
+        }
+
+        static void SafeBrowsingTips()
+        {
+            Console.Clear();
+
+            Console.ForegroundColor = secondaryColor;
+            Console.WriteLine("╔═══════════════════════════════════════════════════╗");
+            Console.WriteLine("║               SAFE BROWSING                       ║");
+            Console.WriteLine("╚═══════════════════════════════════════════════════╝");
+            Console.ResetColor();
+
+            Console.ForegroundColor = primaryColor;
+            TypeWriteEffect($"\n{userName}, protect yourself while browsing the internet with these guidelines:\n");
+            Console.ResetColor();
+
+            Console.WriteLine("1. Keep your browser and operating system updated");
+            Console.WriteLine("2. Use HTTPS websites whenever possible (look for the padlock icon)");
+            Console.WriteLine("3. Be careful what you download - verify the source first");
+            Console.WriteLine("4. Use an ad-blocker to reduce exposure to potentially malicious ads");
+            Console.WriteLine("5. Consider using a VPN for public Wi-Fi connections");
+            Console.WriteLine("6. Clear cookies and browsing history regularly");
+
+            Console.ForegroundColor = warningColor;
+            Console.WriteLine("\n⚠ Be extremely cautious when entering personal or financial information online!");
+            Console.ResetColor();
+        }
+
+        static void DisplayHelp()
+        {
+            Console.Clear();
+
+            Console.ForegroundColor = secondaryColor;
+            Console.WriteLine("╔═══════════════════════════════════════════════════╗");
+            Console.WriteLine("║                    HELP                           ║");
+            Console.WriteLine("╚═══════════════════════════════════════════════════╝");
+            Console.ResetColor();
+
+            Console.ForegroundColor = primaryColor;
+            TypeWriteEffect($"\n{userName}, here's how to use the Cybersecurity Awareness Bot:\n");
+            Console.ResetColor();
+
+            Console.WriteLine("- Type the number of the topic you want to learn about (1-3)");
+            Console.WriteLine("- Type 'help' anytime to see this help screen");
+            Console.WriteLine("- Type 'exit' to quit the application");
+
+            Console.ForegroundColor = highlightColor;
+            Console.WriteLine("\nThis chatbot can provide information on:");
+            Console.ResetColor();
+            Console.WriteLine("1. Password Safety - Tips for creating and managing secure passwords");
+            Console.WriteLine("2. Phishing Awareness - How to identify and avoid phishing attempts");
+            Console.WriteLine("3. Safe Browsing - Best practices for safe internet browsing");
+
+            Console.ForegroundColor = primaryColor;
+            Console.WriteLine($"\nIf you have any questions, just ask, {userName}!");
+            Console.ResetColor();
+        }
+
+        static void HandleInvalidInput(string input)
+        {
+            Console.ForegroundColor = warningColor;
+            Console.WriteLine($"\nI didn't quite understand '{input}'. Could you please try again?");
+            Console.WriteLine("Type 'help' if you need assistance.");
+            Console.ResetColor();
+        }
+
+        static bool ConfirmExit()
+        {
+            Console.ForegroundColor = highlightColor;
+            Console.Write($"\n{userName}, are you sure you want to exit? (y/n): ");
+            Console.ResetColor();
+
+            string response = Console.ReadLine().Trim().ToLower();
+
+            return response == "y" || response == "yes";
+        }
+
+        static void TypeWriteEffect(string text, int delay = 30)
+        {
+            // Creates a typing effect for more engaging interaction
+            foreach (char c in text)
+            {
+                Console.Write(c);
+                Thread.Sleep(delay);
+            }
+            Console.WriteLine();
+        }
+    }
+}
